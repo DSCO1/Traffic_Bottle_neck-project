@@ -455,11 +455,21 @@ st.markdown("""
 
 simulation_container = st.container()
 with simulation_container:
+    st.markdown("""<div style="height:420px; overflow:hidden;">""", unsafe_allow_html=True)
     placeholder = st.empty()
+    st.markdown("</div>", unsafe_allow_html=True)
 metrics_area = st.empty()
 
 if not run_baseline and not run_zipper:
-    placeholder.info("🚦 Run simulation to visualize traffic flow")
+    if "last_frame" in st.session_state:
+        placeholder.pyplot(st.session_state.last_frame, clear_figure=False, use_container_width=False)
+    else:
+        placeholder.info("🚦 Run simulation to visualize traffic flow")
+
+if 'fig' not in st.session_state:
+    fig, ax = plt.subplots(figsize=(14, 4))
+    st.session_state.fig = fig
+    st.session_state.ax = ax
 
 def execute_simulation(strategy):
     sim = SimulationEngine(strategy, input_num_vehicles, input_aggression, input_speed_mult, input_lanes, output_lanes)
@@ -473,24 +483,34 @@ def execute_simulation(strategy):
             sim.step()
             if show_animation and sim.step_count % 2 == 0:
                 if len(sim.all_vehicles) > 0:
-                    plt.clf()
-                    plt.close('all')
-                    fig, ax = plt.subplots(figsize=(12, 4))
+                    fig = st.session_state.fig
+                    ax = st.session_state.ax
+                    fig.set_size_inches(14, 4)
+                    
                     draw_simulation_state(fig, ax, sim)
+                    
+                    ax.set_xlim(0, 100)
+                    ax.set_ylim(-1, max(sim.input_lanes, sim.output_lanes) * 1.5)
+                    
                     plt.tight_layout()
-                    placeholder.pyplot(fig, use_container_width=True)
+                    placeholder.pyplot(fig, clear_figure=False, use_container_width=False)
                     time.sleep(1.0 / input_fps)
             prog.progress(min(1.0, sim.throughput_count / max(1, sim.num_vehicles)))
         
     prog.empty()
     if show_animation and len(sim.all_vehicles) > 0:
-        plt.clf()
-        plt.close('all')
-        fig, ax = plt.subplots(figsize=(12, 4))
+        fig = st.session_state.fig
+        ax = st.session_state.ax
+        fig.set_size_inches(14, 4)
+        
         draw_simulation_state(fig, ax, sim)
+        
+        ax.set_xlim(0, 100)
+        ax.set_ylim(-1, max(sim.input_lanes, sim.output_lanes) * 1.5)
+        
         plt.tight_layout()
-        placeholder.pyplot(fig, use_container_width=True)
-        plt.close('all')
+        placeholder.pyplot(fig, clear_figure=False, use_container_width=False)
+        st.session_state.last_frame = fig
     
     stats = sim.get_metrics()
     
