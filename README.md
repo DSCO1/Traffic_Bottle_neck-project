@@ -79,6 +79,7 @@ streamlit run app.py
 - **Dev_Decs**
 
 ##10. screenshot
+
 <img width="1917" height="878" alt="image" src="https://github.com/user-attachments/assets/4e25d55d-d769-4b9a-8a71-25296c1bb4d8" />
 <img width="1911" height="806" alt="image" src="https://github.com/user-attachments/assets/8c08f7e3-f9d7-40d5-b5cd-974762ffa021" />
 <img width="1903" height="875" alt="image" src="https://github.com/user-attachments/assets/d99cfcf9-6ead-4981-8386-2f71a68eb8ec" />
