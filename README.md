@@ -1,5 +1,11 @@
 # Traffic Intelligence System – Bottleneck Optimization Simulator
 
+<p align="center">
+  <img src="https://img.shields.io/badge/Project-Traffic%20Simulation-blue?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Built%20With-Streamlit-red?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Focus-Optimization-green?style=for-the-badge" />
+</p>
+
 ## 1. Project Overview
 
 The Traffic Intelligence System is an interactive, data-driven simulation designed to model, analyze, and optimize traffic bottlenecks. Built to compare uncoordinated, free-flowing traffic (Baseline) against a strictly enforced alternate flow strategy (Zipper Merge), it demonstrates how structured decision-making improves the efficiency of urban mobility. The project focuses purely on optimization logic, throughput metrics, and dynamic grid visualization.
