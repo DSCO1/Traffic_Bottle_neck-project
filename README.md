@@ -1,10 +1,11 @@
-# Traffic Intelligence System – Bottleneck Optimization Simulator
-
 <p align="center">
   <img src="https://img.shields.io/badge/Project-Traffic%20Simulation-blue?style=for-the-badge" />
   <img src="https://img.shields.io/badge/Built%20With-Streamlit-red?style=for-the-badge" />
   <img src="https://img.shields.io/badge/Focus-Optimization-green?style=for-the-badge" />
 </p>
+
+# Traffic Intelligence System – Bottleneck Optimization Simulator
+
 
 ## 1. Project Overview
 
