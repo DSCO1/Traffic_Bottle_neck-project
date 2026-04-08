@@ -639,6 +639,5 @@ st.markdown("---")
 st.markdown("""
 <div style="text-align: center; color: #a0a0b0; padding: 30px;">
     <p style="font-size: 1.1rem;">🏁 Built for <b>Traffic Intelligence Hackathon</b></p>
-    <p><i>Antigravity Agent Design</i></p>
 </div>
 """, unsafe_allow_html=True)

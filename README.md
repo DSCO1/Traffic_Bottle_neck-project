@@ -76,5 +76,4 @@ streamlit run app.py
 
 ## 9. Author
 
-- **Ujjawal**
-- *B.Tech Student | Data Science & ML Enthusiast*
+- **Dev_Decs**
